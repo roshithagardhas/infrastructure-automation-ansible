@@ -1,0 +1,19 @@
+---
+- name: EC2 Server Setup
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Update packages
+      apt:
+        update_cache: yes
+
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+
+    - name: Install Python3
+      apt:
+        name: python3
+        state: present
